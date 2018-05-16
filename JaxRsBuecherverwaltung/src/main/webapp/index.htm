@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Meine RESTful-Webservice-Startseite</title>
+</head>
+<body>
+<h3> Meine RESTful-Webservice-Startseite </h3>
+
+<h4><u> WADL </u></h4>
+<p> <a href="/JaxRsBuecherverwaltung/rest/application.wadl">/JaxRsBuecherverwaltung/rest/application.wadl</a> </p>
+
+<h4><u> Buecher-Verwaltung </u></h4>
+
+<p> Zwei erste Bücher anlegen (alle Felder müssen ausgefüllt sein): </p>
+<form method="POST" action="/JaxRsBuecherverwaltung/rest/Artikel/Buecher" enctype="application/x-www-form-urlencoded">
+    ISBN:&nbsp;<input type="text" name="isbn"  value="1234567891" maxlength=20> &nbsp;
+    Titel:&nbsp;<input type="text" name="titel" value="MeinTitel1" maxlength=80> &nbsp;
+    Preis:&nbsp;<input type="text" name="preis" value="12.34"      maxlength=20> &nbsp;
+    <input type="submit" value="Erstes Buch anlegen">
+</form>
+<form method="POST" action="/JaxRsBuecherverwaltung/rest/Artikel/Buecher" enctype="application/x-www-form-urlencoded">
+    ISBN:&nbsp;<input type="text" name="isbn"  value="1234567892" maxlength=20> &nbsp;
+    Titel:&nbsp;<input type="text" name="titel" value="MeinTitel2" maxlength=80> &nbsp;
+    Preis:&nbsp;<input type="text" name="preis" value="22.34"      maxlength=20> &nbsp;
+    <input type="submit" value="Zweites Buch anlegen">
+</form>
+
+<p> Abfragen (bitte vorher obige zwei Test-Bücher anlegen): </p>
+<p> <a href="/JaxRsBuecherverwaltung/rest/Artikel/Buecher">/JaxRsBuecherverwaltung/rest/Artikel/Buecher</a> (alle Bücher) </p>
+<p> <a href="/JaxRsBuecherverwaltung/rest/Artikel/Buecher/4711">/JaxRsBuecherverwaltung/rest/Artikel/Buecher/4711</a> (Buch mit ID 4711) </p>
+<p> <a href="/JaxRsBuecherverwaltung/rest/Artikel/Buecher?isbn=1234567892">/JaxRsBuecherverwaltung/rest/Artikel/Buecher?isbn=1234567892</a> (Buch mit ISBN 1234567892) </p>
+<p> <a href="/JaxRsBuecherverwaltung/rest/Artikel/Buecher/?titel=MeinTitel2">/JaxRsBuecherverwaltung/rest/Artikel/Buecher/?titel=MeinTitel2</a> (Buch mit Titel 'MeinTitel2') </p>
+<p> <a href="/JaxRsBuecherverwaltung/rest/Artikel/Buecher/?isbn=1234567891&titel=MeinTitel2">/JaxRsBuecherverwaltung/rest/Artikel/Buecher/?isbn=1234567891&titel=MeinTitel2</a> (Bücher mit ISBN 1234567891 oder Titel 'MeinTitel2') </p>
+
+<p> Weiteres neues Buch anlegen (alle Felder müssen ausgefüllt werden): </p>
+<form method="POST" action="/JaxRsBuecherverwaltung/rest/Artikel/Buecher" enctype="application/x-www-form-urlencoded">
+    ISBN:&nbsp;<input type="text" name="isbn"  value="1472583693"    maxlength=20> &nbsp;
+    Titel:&nbsp;<input type="text" name="titel" value="Neuer Titel X" maxlength=80> &nbsp;
+    Preis:&nbsp;<input type="text" name="preis" value="123.45"        maxlength=20> &nbsp;
+    <input type="submit" value="Neues Buch anlegen">
+</form>
+
+<p> Bücher finden (es genügt einzelne Felder zu füllen; als ISBN und Titel genügen Teilstrings zum Finden mehrerer passender Bücher): </p>
+<form method="GET" action="/JaxRsBuecherverwaltung/rest/Artikel/Buecher/" enctype="application/x-www-form-urlencoded">
+    ISBN:&nbsp;<input type="text" name="isbn"  maxlength=20> &nbsp;
+    Titel:&nbsp;<input type="text" name="titel" maxlength=80> &nbsp;
+    ID:&nbsp;<input type="text" name="id"    maxlength=40> &nbsp;
+    <input type="submit" value="Bücher finden">
+</form>
+</body>
+</html>

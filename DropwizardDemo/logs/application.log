@@ -1,0 +1,25 @@
+INFO   [11:33:41.727] [main] o.e.j.u.log -  Logging initialized @2713ms to org.eclipse.jetty.util.log.Slf4jLog 
+INFO   [11:33:41.853] [main] i.d.s.DefaultServerFactory -  Registering jersey handler with root path prefix: /DropwizardDemo 
+INFO   [11:33:41.856] [main] i.d.s.DefaultServerFactory -  Registering admin handler with root path prefix: / 
+INFO   [11:33:41.859] [main] i.d.s.ServerFactory -  Starting MeineApp 
+INFO   [11:33:42.084] [main] o.e.j.s.SetUIDListener -  Opened application@2418ba04{HTTP/1.1,[http/1.1]}{0.0.0.0:8080} 
+INFO   [11:33:42.085] [main] o.e.j.s.SetUIDListener -  Opened admin@14229fa7{HTTP/1.1,[http/1.1]}{0.0.0.0:8081} 
+INFO   [11:33:42.089] [main] o.e.j.s.Server -  jetty-9.4.z-SNAPSHOT 
+INFO   [11:33:43.006] [main] i.d.j.DropwizardResourceConfig -  The following paths were found for the configured resources:
+
+    GET     /zeigeparms (de.meinefirma.meinprojekt.MeinRestService)
+ 
+INFO   [11:33:43.009] [main] o.e.j.s.h.ContextHandler -  Started i.d.j.MutableServletContextHandler@46e190ed{/DropwizardDemo,null,AVAILABLE} 
+INFO   [11:33:43.017] [main] i.d.s.AdminEnvironment -  tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+ 
+INFO   [11:33:43.018] [main] o.e.j.s.h.ContextHandler -  Started i.d.j.MutableServletContextHandler@dd4aec3{/,null,AVAILABLE} 
+INFO   [11:33:43.370] [main] o.e.j.s.AbstractConnector -  Started application@2418ba04{HTTP/1.1,[http/1.1]}{0.0.0.0:8080} 
+INFO   [11:33:43.375] [main] o.e.j.s.AbstractConnector -  Started admin@14229fa7{HTTP/1.1,[http/1.1]}{0.0.0.0:8081} 
+INFO   [11:33:43.375] [main] o.e.j.s.Server -  Started @4362ms 
+INFO   [11:55:43.752] [Thread-12] o.e.j.s.AbstractConnector -  Stopped application@2418ba04{HTTP/1.1,[http/1.1]}{0.0.0.0:8080} 
+INFO   [11:55:43.752] [Thread-12] o.e.j.s.AbstractConnector -  Stopped admin@14229fa7{HTTP/1.1,[http/1.1]}{0.0.0.0:8081} 
+INFO   [11:55:43.752] [Thread-12] o.e.j.s.h.ContextHandler -  Stopped i.d.j.MutableServletContextHandler@dd4aec3{/,null,UNAVAILABLE} 
+INFO   [11:55:43.767] [Thread-12] o.e.j.s.h.ContextHandler -  Stopped i.d.j.MutableServletContextHandler@46e190ed{/DropwizardDemo,null,UNAVAILABLE} 

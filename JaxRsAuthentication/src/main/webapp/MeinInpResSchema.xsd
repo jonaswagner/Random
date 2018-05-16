@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="mein.ns"
+           targetNamespace="mein.ns"
+           elementFormDefault="qualified">
+
+    <xs:element name="inputTO"  type="InputTO"  />
+    <xs:element name="resultTO" type="ResultTO" />
+
+    <xs:complexType name="InputTO">
+        <xs:sequence>
+            <xs:element name="i" type="xs:int" />
+            <xs:element name="s" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ResultTO">
+        <xs:sequence>
+            <xs:element name="i" type="xs:int" />
+            <xs:element name="s" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

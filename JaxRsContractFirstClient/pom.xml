@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>minirestwebservice</groupId>
+    <artifactId>JaxRsContractFirstClient</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>tests</id>
+                        <goals>
+                            <!-- Zur Erzeugung der JaxRsContractFirstService-tests.jar,
+                                 welche die Test-Utility-Klasse RestServerTestUtil.class enthaelt: -->
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>fuer-test</id>
+                        <goals>
+                            <!-- Zur Erzeugung der JaxRsContractFirstService-fuer-test.jar,
+                                 welche die im Client für den Test benoetigte Server-Klasse ContractfirstService.class enthaelt
+                                 (die JAR wird benoetigt, weil diese Klasse nicht aus der WAR-Datei verwendet werden kann): -->
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>fuer-test</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>2.26</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-grizzly2-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>minirestwebservice</groupId>
+            <artifactId>JaxRsContractFirstService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+        <!-- Dependency zu JaxRsContractFirstService-fuer-test.jar,
+             welche die im Client für den Test benoetigte Server-Klasse ContractfirstService.class enthaelt
+             (die JAR wird benoetigt, weil diese Klasse nicht aus der WAR-Datei verwendet werden kann): -->
+        <dependency>
+            <groupId>minirestwebservice</groupId>
+            <artifactId>JaxRsContractFirstService</artifactId>
+            <classifier>fuer-test</classifier>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
